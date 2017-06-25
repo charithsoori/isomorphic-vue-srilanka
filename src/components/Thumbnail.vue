@@ -1,20 +1,25 @@
 <template>
-        <!--{{image.url}}-->
-        <!--<a v-for="image in images" class="Thumbnail" href="#" :style="{'background-image': 'url(' + image.url + ')' }">
-        </a>-->
-           <a  class="Thumbnail" href="#" :style="{'background-image': 'url(' + backgroundImage.url + ')' }">
-        </a>
+    <router-link class="Thumbnail" :to="'/photo/'+this.image.id" :style="{'background-image': 'url(' + getImageUrl+ ')' }">
+    </router-link>
 </template>
 
 <script>
+import router from 'vue-router';
+
 export default {
     name: "thumbnail",
-    props:['image'],
+    props: ['image'],
     data() {
         return {
-            backgroundImage:this.image
+            backgroundImage: this.image
         }
     },
+    computed: {
+        getImageUrl() {
+            var image = `https://farm${this.image.farm}.staticflickr.com/${this.image.server}/${this.image.id}_${this.image.secret}_c.jpg`;
+            return image;
+        }
+    }
 }
 </script>
 
@@ -24,7 +29,7 @@ export default {
     min-width: 8rem;
     min-height: 8rem;
 
-    border: 1px solid;
+    border: 3px solid;
 
     background-repeat: no-repeat;
     background-position: center;

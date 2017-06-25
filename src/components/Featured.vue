@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="ThumbnailCollection">
-            <thumbnail v-for="image in images" :image="image"></thumbnail>
+            <thumbnail v-for="photo in getImages" :image="photo" :key="photo.id"></thumbnail>
         </div>
     </div>
 </template>
@@ -11,37 +11,60 @@ import thumbnail from './Thumbnail';
 
 export default {
     name: 'featured',
+    props: ['page'],
     components: {
         thumbnail
     },
-    data() {
-        return {
-            data:{url: 'https://static.pexels.com/photos/3247/nature-forest-industry-rails.jpg' },
-            images: [
-                { url: 'https://static.pexels.com/photos/3247/nature-forest-industry-rails.jpg' },
-                { url: 'https://drscdn.500px.org/photo/214147391/m%3D900_k%3D1_a%3D1/df538f5d32815165be6ddeeff0014063' },
-                { url: 'https://drscdn.500px.org/photo/214128261/m%3D900_k%3D1_a%3D1/1249ce21583dbd4f9780f06dbac199f2' },
-                { url: 'https://drscdn.500px.org/photo/214147391/m%3D900_k%3D1_a%3D1/df538f5d32815165be6ddeeff0014063' },
-            ]
+    created() {
+        this.fetchData();
+    },
+    computed: {
+        getImages() {
+            this.photos = this.$store.getters.getFeaturedPhotos;
+            return this.photos.photo;
+        }
+    },
+    watch: {
+        '$route': 'fetchData'
+    },
+    methods: {
+        fetchData() {
+            this.$store.dispatch('FETCH_FEATURED_IMAGES');
         }
     }
 };
 </script>
 
-<style >
-.Thumbnail {
-    box-sizing: border-box;
-    min-width: 8rem;
-    min-height: 8rem;
+<style lang="scss">
+.ThumbnailCollection {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 
-    border: 1px solid;
+    .Thumbnail {
 
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+        flex: 1;
+        flex-basis: 8rem;
 
-    transition: filter .25s;
-    width: 300px;
-    height: 300px;
+        &:nth-child(5n) {
+            flex-basis: 14rem;
+            ;
+        }
+
+        &:nth-child(2n+1) {
+            flex-basis: 10rem;
+            ;
+        }
+
+        &:nth-child(7n+4) {
+            flex-basis: 20rem;
+            min-height: 12rem;
+        }
+
+        &:hover {
+            opacity: .9;
+        }
+    }
 }
+
 </style>

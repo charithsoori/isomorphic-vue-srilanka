@@ -1,32 +1,34 @@
 <template>
     <div class="NavBar">
         <div class="NavBar-title">
-            Photo-Stack
+            <span class="webtitle">
+                <img class="flag" src="../public/icon/slflag.png" alt="Sri Lanka Flag" width="50"> Sri Lanka</span>
         </div>
         <div className="NavBar-links">
         </div>
         <div class="NavBar-links" data-reactid="16">
-            <a class="NavBar-link NavBar-link--selected active" href="/featured/popular" data-reactid="17">
-                <span data-reactid="18">Most Popular</span>
-            </a>
-            <a class="NavBar-link" href="/featured/highest_rated" data-reactid="19">
-                <span data-reactid="20">Highest Rated</span>
-            </a>
-            <a class="NavBar-link" href="/featured/upcoming" data-reactid="21">
-                <span data-reactid="22">Upcoming</span>
-            </a>
-            <a class="NavBar-link" href="/featured/editors" data-reactid="23">
-                <span data-reactid="24">Editors picks</span>
-            </a>
-            <a class="NavBar-link" href="/featured/fresh_today" data-reactid="25">
-                <span data-reactid="26">Fresh Today</span>
-            </a>
-            <a class="NavBar-link" href="/featured/fresh_yesterday" data-reactid="27">
-                <span data-reactid="28">Fresh Yesterday</span>
-            </a>
-            <a class="NavBar-link" href="/featured/fresh_week" data-reactid="29">
-                <span data-reactid="30">Fresh This Week</span>
-            </a>
+            <router-link class="NavBar-link" to="/cat/beach" data-reactid="29">
+                <span data-reactid="30">beach</span>
+            </router-link>
+            <router-link class="NavBar-link" to="/cat/lepord" data-reactid="17">
+                <span data-reactid="18">Leopards</span>
+            </router-link>
+            <router-link class="NavBar-link" to="/cat/elephants" data-reactid="19">
+                <span data-reactid="20">Elephants</span>
+            </router-link>
+            <router-link class="NavBar-link" to="/cat/sinharaja" data-reactid="21">
+                <span data-reactid="22">Sinharaja</span>
+            </router-link>
+            <router-link class="NavBar-link" to="/cat/bear" data-reactid="23">
+                <span data-reactid="24">Sloth Bear</span>
+            </router-link>
+            <router-link class="NavBar-link" to="/cat/birds" data-reactid="25">
+                <span data-reactid="26">Birds</span>
+            </router-link>
+            <router-link class="NavBar-link" to="/cat/knuckles" data-reactid="27">
+                <span data-reactid="28">knuckles</span>
+            </router-link>
+    
         </div>
     </div>
 </template>
@@ -42,24 +44,19 @@ export default {
 $color-white: #FFF;
 $color-black: #000;
 $color-primary: #000;
-$color-secondary: #53A0FD;
+$color-secondary: #000;
 $color-border: #CCC;
 $color-background: #EAEAEA;
 
 .NavBar {
     position: relative;
-    margin-bottom: 2rem;
+    margin: 0rem 0rem 2rem 0rem;
 }
 
 .NavBar-title {
     text-align: left;
 }
 
-@media screen and (min-device-width: 481px) {
-    .NavBar-title {
-        text-align: center;
-    }
-}
 
 .NavBar-links {
     overflow: auto;
@@ -94,7 +91,7 @@ $color-background: #EAEAEA;
     }
 
     &:after {
-        display: block;
+
         width: 0;
         height: 2px;
         margin: .25rem auto;
@@ -106,8 +103,9 @@ $color-background: #EAEAEA;
     }
 }
 
-.NavBar-link--selected {
+.router-link-active {
     color: $color-secondary;
+    font-weight: 700;
 
     &:after {
         width: 100%;
@@ -119,5 +117,11 @@ $color-background: #EAEAEA;
     position: absolute;
     right: 0;
     top: 0;
+}
+
+.webtitle {
+    font-size: 40px;
+    font-weight: 700;
+    text-transform: uppercase;
 }
 </style>
