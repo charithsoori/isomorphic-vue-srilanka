@@ -1,8 +1,8 @@
 <template>
     <div class="PhotoMeta">
-        <photoattribution v-if="photo.id" :user="photo.owner"></photoattribution>
-        <photocreatedat  v-if="photo.id" :createdat="photo.dates.taken"></photocreatedat>
-        <photorating  v-if="photo.id" :rating="photo.views"></photorating>
+        <photoattribution v-if="photo.id" :user="this.data"></photoattribution>
+        <photocreatedat v-if="photo.id" :createdat="photo.dates.taken"></photocreatedat>
+        <photorating v-if="photo.id" :rating="photo.views"></photorating>
     </div>
 </template>
 
@@ -16,6 +16,17 @@ import photorating from "./PhotoRating"
 export default {
     name: 'photo-meta',
     props: ['photo'],
+    data() {
+        return {
+            data: this.$props.photo
+        }
+    },
+    computed: {
+        setData() {
+            this.data = this.photo
+            return this.data;
+        }
+    },
     components: { photoattribution, photocreatedat, photorating },
 }
 </script>

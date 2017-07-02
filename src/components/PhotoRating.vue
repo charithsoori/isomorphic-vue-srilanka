@@ -9,7 +9,7 @@ export default {
 }
 </script>
 <style>
-.ratings{
+.ratings {
     color: #bbb;
     font-weight: 500;
     padding-left: 5px;
