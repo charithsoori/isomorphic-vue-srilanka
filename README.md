@@ -1,6 +1,9 @@
-# srilanka
+# ismorphic-vuejs-srilanka
 
-> Photos of many attractions in Sri Lanka
+> Captures of beautiful sri lanka . Built with Vue 2.0 + vue-router + vuex, axio ,flickr flicker api with server-side rendering [not yet implemented].
+
+![alt text](./srilanka.jpg)
+
 
 ## Build Setup
 
@@ -26,3 +29,8 @@ npm run e2e
 # run all tests
 npm test
 ```
+
+##License
+
+MIT
+
