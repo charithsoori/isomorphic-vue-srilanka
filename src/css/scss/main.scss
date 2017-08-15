@@ -2,6 +2,15 @@
     padding:0 20px ;
 }
 
+.NavBar-link{
+    font-weight:700 !important;
+    &:hover{
+        text-decoration: none;
+        color: #8d1526 !important;
+        opacity: 10 !important;
+    }
+}
+    
 .cat-icon{
     padding: 0 20px;
     text-align: center;

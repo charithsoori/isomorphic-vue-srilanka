@@ -1,8 +1,12 @@
 <template>
     <div class="PhotoMeta">
-        <photoattribution v-if="photo.id" :user="photo.owner"></photoattribution>
-        <photocreatedat  v-if="photo.id" :createdat="photo.dates.taken"></photocreatedat>
-        <photorating  v-if="photo.id" :rating="photo.views"></photorating>
+        <div class="col-4 justify-content-md-start">
+            <photoattribution v-if="photo.id" :user="photo.owner"></photoattribution>
+            <photocreatedat  v-if="photo.id" :createdat="photo.dates.taken"></photocreatedat>
+        </div>
+        <div class="col-4 justify-content-md-end">
+            <photorating  v-if="photo.id" :rating="photo.views"></photorating>
+        </div>
     </div>
 </template>
 
@@ -27,6 +31,7 @@ export default {
     font-size: 12px;
     font-weight: 400;
     color: #ccc;
+    padding-top: 12px;
 }
 </style>
 

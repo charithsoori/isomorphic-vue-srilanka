@@ -6,16 +6,15 @@
     <div class="container">
         <div class="d-flex justify-content-center searchcenter">
             <div class="col-8 input-group">
-                <input type="text" class="form-control" style="height: 68px;" placeholder="Search for phots">
+                <input type="text" class="form-control" style="height: 68px;" placeholder="Search for Photo">
                 <span class="input-group-btn">
-                    <button class="btn btn-secondary" type="button">Go!</button>
+                    <button class="btn btn-secondary" type="button">Go</button>
                 </span>
             </div>
         </div>
     </div>
 
-
-    <div class="d-flex justify-content-center">
+    <!--<div class="d-flex justify-content-center">
         <span class="col-4 popu-search">Popular Search</span>
     </div>
     <div class="row landingicons">
@@ -69,7 +68,7 @@
                 <span data-reactid="18">Kandy</span>
             </router-link>
         </span>
-    </div>
+    </div>-->
     
     </div>
 </template>
